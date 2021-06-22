@@ -1,0 +1,163 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 129.287, 2.02586 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 99.7786 )
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 35.3162, 185.277 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 127.708, 193.214 )
+
+[node name="Node2D" type="Node2D" parent="StaticBody2D"]
+position = Vector2( 0, -7.93701 )
+
+[node name="groundzin" type="StaticBody2D" parent="StaticBody2D/Node2D"]
+position = Vector2( -90.2641, -32.6953 )
+scale = Vector2( 1, 0.599998 )
+
+[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin"]
+position = Vector2( -0.34243, 0.219727 )
+scale = Vector2( 0.833788, 0.104794 )
+texture = ExtResource( 2 )
+
+[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin"]
+scale = Vector2( 0.212136, 1.61536 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="groundzin5" type="StaticBody2D" parent="StaticBody2D/Node2D"]
+position = Vector2( -90.2641, 3.02299 )
+scale = Vector2( 1, 0.599998 )
+
+[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin5"]
+position = Vector2( -0.34243, 0.219727 )
+scale = Vector2( 0.833788, 0.104794 )
+texture = ExtResource( 2 )
+
+[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin5"]
+scale = Vector2( 0.212136, 1.61536 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="groundzin6" type="StaticBody2D" parent="StaticBody2D/Node2D"]
+position = Vector2( 97.2809, 3.02299 )
+scale = Vector2( 1, 0.599998 )
+
+[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin6"]
+position = Vector2( -0.34243, 0.219727 )
+scale = Vector2( 0.833788, 0.104794 )
+texture = ExtResource( 2 )
+
+[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin6"]
+scale = Vector2( 0.212136, 1.61536 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="groundzin7" type="StaticBody2D" parent="StaticBody2D/Node2D"]
+position = Vector2( 97.2809, 3.02299 )
+scale = Vector2( 1, 0.599998 )
+
+[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin7"]
+position = Vector2( -0.34243, 0.219727 )
+scale = Vector2( 0.833788, 0.104794 )
+texture = ExtResource( 2 )
+
+[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin7"]
+scale = Vector2( 0.212136, 1.61536 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="groundzin2" type="StaticBody2D" parent="StaticBody2D/Node2D"]
+position = Vector2( -63.2783, -64.4433 )
+scale = Vector2( 1, 0.599998 )
+
+[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin2"]
+position = Vector2( -0.34243, 0.219727 )
+scale = Vector2( 0.833788, 0.104794 )
+texture = ExtResource( 2 )
+
+[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin2"]
+scale = Vector2( 0.212136, 1.61536 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="groundzin8" type="StaticBody2D" parent="StaticBody2D/Node2D"]
+position = Vector2( 38.2842, -64.4433 )
+scale = Vector2( 1, 0.599998 )
+
+[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin8"]
+position = Vector2( -0.34243, 0.219727 )
+scale = Vector2( 0.833788, 0.104794 )
+texture = ExtResource( 2 )
+
+[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin8"]
+scale = Vector2( 0.212136, 1.61536 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="groundzin9" type="StaticBody2D" parent="StaticBody2D/Node2D"]
+position = Vector2( 67.6406, -34.3269 )
+scale = Vector2( 1, 0.599998 )
+
+[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin9"]
+position = Vector2( -0.34243, 0.219727 )
+scale = Vector2( 0.833788, 0.104794 )
+texture = ExtResource( 2 )
+
+[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin9"]
+scale = Vector2( 0.212136, 1.61536 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="groundzin3" type="StaticBody2D" parent="StaticBody2D/Node2D"]
+position = Vector2( -63.2783, -97.9824 )
+scale = Vector2( 1, 0.599998 )
+
+[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin3"]
+position = Vector2( -0.34243, 0.219727 )
+scale = Vector2( 0.833788, 0.104794 )
+texture = ExtResource( 2 )
+
+[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin3"]
+scale = Vector2( 0.212136, 1.61536 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="groundzin4" type="StaticBody2D" parent="StaticBody2D/Node2D"]
+position = Vector2( 4.18626, -136.08 )
+scale = Vector2( 2.56, 0.599998 )
+
+[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin4"]
+position = Vector2( -0.34243, 0.219727 )
+scale = Vector2( 0.833788, 0.104794 )
+texture = ExtResource( 2 )
+
+[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin4"]
+scale = Vector2( 0.212136, 1.61536 )
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="ScreenBoundaries" type="Area2D" parent="."]
+position = Vector2( 128.721, 95.2316 )
+scale = Vector2( 0.978315, 0.978315 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2( -142.388, 0 )
+scale = Vector2( 1, 1.36798 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ScreenBoundaries"]
+position = Vector2( 140.219, 0 )
+scale = Vector2( 1, 1.36798 )
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="ScreenBoundaries" to="Player" method="_on_ScreenBoundaries_body_entered"]
