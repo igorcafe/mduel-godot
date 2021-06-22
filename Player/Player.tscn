@@ -1,9 +1,8 @@
 [gd_scene load_steps=44 format=2]
 
-[ext_resource path="res://playerSprite1.png" type="Texture" id=1]
-[ext_resource path="res://Player.gd" type="Script" id=2]
-[ext_resource path="res://AnimationTree.gd" type="Script" id=3]
-[ext_resource path="res://bootsSprite.png" type="Texture" id=4]
+[ext_resource path="res://Player/playerSprite1.png" type="Texture" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Player/bootsSprite.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.57784, 1.92948 )
@@ -232,7 +231,7 @@ tracks/1/keys = {
 "values": [ 2, 3, 4 ]
 }
 
-[sub_resource type="Animation" id=34]
+[sub_resource type="Animation" id=10]
 resource_name = "thrown_backward"
 length = 0.2
 loop = true
@@ -261,38 +260,32 @@ tracks/1/keys = {
 "values": [ 28, 29 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=10]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "duck"
 
-[sub_resource type="AnimationNodeAnimation" id=11]
+[sub_resource type="AnimationNodeAnimation" id=12]
 animation = "fall"
 
-[sub_resource type="AnimationNodeAnimation" id=12]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "idle"
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "jump_in_place"
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=15]
 animation = "jump_running"
 
-[sub_resource type="AnimationNodeAnimation" id=35]
+[sub_resource type="AnimationNodeAnimation" id=16]
 animation = "roll_backward"
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "roll_forward"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "run"
 
-[sub_resource type="AnimationNodeAnimation" id=36]
+[sub_resource type="AnimationNodeAnimation" id=19]
 animation = "thrown_backward"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=17]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=18]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=19]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=20]
 
@@ -301,12 +294,8 @@ animation = "thrown_backward"
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=24]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=25]
 
@@ -315,47 +304,59 @@ switch_mode = 2
 auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=27]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=28]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=29]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=30]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=37]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=38]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=39]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=32]
-states/duck/node = SubResource( 10 )
-states/duck/position = Vector2( 101.926, 121.505 )
-states/fall/node = SubResource( 11 )
-states/fall/position = Vector2( 415, 407.772 )
-states/idle/node = SubResource( 12 )
-states/idle/position = Vector2( 426.276, 139.889 )
-states/jump_in_place/node = SubResource( 13 )
-states/jump_in_place/position = Vector2( 139.121, 334.424 )
-states/jump_running/node = SubResource( 14 )
-states/jump_running/position = Vector2( 751.483, 332.956 )
-states/roll_backward/node = SubResource( 35 )
-states/roll_backward/position = Vector2( 981.926, 181.667 )
-states/roll_forward/node = SubResource( 15 )
-states/roll_forward/position = Vector2( 497.023, -45 )
-states/run/node = SubResource( 16 )
-states/run/position = Vector2( 752.971, 68.6296 )
-states/thrown_backward/node = SubResource( 36 )
-states/thrown_backward/position = Vector2( 1053.93, 280.898 )
-transitions = [ "idle", "jump_in_place", SubResource( 17 ), "jump_in_place", "idle", SubResource( 18 ), "idle", "run", SubResource( 19 ), "run", "idle", SubResource( 20 ), "run", "jump_running", SubResource( 21 ), "idle", "fall", SubResource( 22 ), "jump_in_place", "fall", SubResource( 23 ), "jump_running", "fall", SubResource( 24 ), "fall", "idle", SubResource( 25 ), "roll_forward", "idle", SubResource( 26 ), "run", "roll_forward", SubResource( 27 ), "idle", "duck", SubResource( 28 ), "duck", "idle", SubResource( 29 ), "jump_running", "idle", SubResource( 30 ), "run", "fall", SubResource( 31 ), "jump_running", "thrown_backward", SubResource( 37 ), "thrown_backward", "roll_backward", SubResource( 38 ), "roll_backward", "idle", SubResource( 39 ) ]
-start_node = "idle"
-graph_offset = Vector2( 83.0911, 169.501 )
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=33]
+[sub_resource type="AnimationNodeStateMachine" id=38]
+states/duck/node = SubResource( 11 )
+states/duck/position = Vector2( 101.926, 121.505 )
+states/fall/node = SubResource( 12 )
+states/fall/position = Vector2( 415, 407.772 )
+states/idle/node = SubResource( 13 )
+states/idle/position = Vector2( 426.276, 139.889 )
+states/jump_in_place/node = SubResource( 14 )
+states/jump_in_place/position = Vector2( 139.121, 334.424 )
+states/jump_running/node = SubResource( 15 )
+states/jump_running/position = Vector2( 720.816, 450.289 )
+states/roll_backward/node = SubResource( 16 )
+states/roll_backward/position = Vector2( 877.926, 138.407 )
+states/roll_forward/node = SubResource( 17 )
+states/roll_forward/position = Vector2( 497.023, -45 )
+states/run/node = SubResource( 18 )
+states/run/position = Vector2( 752.971, 68.6296 )
+states/thrown_backward/node = SubResource( 19 )
+states/thrown_backward/position = Vector2( 936.597, 274.231 )
+transitions = [ "idle", "jump_in_place", SubResource( 20 ), "jump_in_place", "idle", SubResource( 21 ), "idle", "run", SubResource( 22 ), "run", "idle", SubResource( 23 ), "run", "jump_running", SubResource( 24 ), "idle", "fall", SubResource( 25 ), "jump_in_place", "fall", SubResource( 26 ), "jump_running", "fall", SubResource( 27 ), "fall", "idle", SubResource( 28 ), "roll_forward", "idle", SubResource( 29 ), "run", "roll_forward", SubResource( 30 ), "idle", "duck", SubResource( 31 ), "duck", "idle", SubResource( 32 ), "jump_running", "idle", SubResource( 33 ), "run", "fall", SubResource( 34 ), "jump_running", "thrown_backward", SubResource( 35 ), "thrown_backward", "roll_backward", SubResource( 36 ), "roll_backward", "idle", SubResource( 37 ), "fall", "thrown_backward", SubResource( 40 ) ]
+start_node = "idle"
+graph_offset = Vector2( -47.6328, -104.312 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=39]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -382,13 +383,12 @@ anims/jump_running = SubResource( 6 )
 anims/roll_backward = SubResource( 7 )
 anims/roll_forward = SubResource( 8 )
 anims/run = SubResource( 9 )
-anims/thrown_backward = SubResource( 34 )
+anims/thrown_backward = SubResource( 10 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 32 )
+tree_root = SubResource( 38 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 33 )
-script = ExtResource( 3 )
+parameters/playback = SubResource( 39 )
 
 [node name="BootsSprite" type="Sprite" parent="."]
 position = Vector2( 0, -11.996 )

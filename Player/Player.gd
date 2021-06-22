@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+class_name Player
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -92,3 +92,6 @@ func thrown_backwards():
 func _on_ScreenBoundaries_body_entered(body):
 	thrown_backwards()
 #	roll_backwards()
+
+func drown():
+	print("drown")
