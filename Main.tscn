@@ -1,150 +1,13 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 129.287, 2.02586 )
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Environment/Water/WaterTile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Environment/Platform/PlatformTile.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 99.7786 )
 
 [node name="Main" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 35.3162, 185.277 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( 127.708, 193.214 )
-
-[node name="Node2D" type="Node2D" parent="StaticBody2D"]
-position = Vector2( 0, -7.93701 )
-
-[node name="groundzin" type="StaticBody2D" parent="StaticBody2D/Node2D"]
-position = Vector2( -90.2641, -32.6953 )
-scale = Vector2( 1, 0.599998 )
-
-[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin"]
-position = Vector2( -0.34243, 0.219727 )
-scale = Vector2( 0.833788, 0.104794 )
-texture = ExtResource( 2 )
-
-[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin"]
-scale = Vector2( 0.212136, 1.61536 )
-shape = SubResource( 1 )
-one_way_collision = true
-
-[node name="groundzin5" type="StaticBody2D" parent="StaticBody2D/Node2D"]
-position = Vector2( -90.2641, 3.02299 )
-scale = Vector2( 1, 0.599998 )
-
-[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin5"]
-position = Vector2( -0.34243, 0.219727 )
-scale = Vector2( 0.833788, 0.104794 )
-texture = ExtResource( 2 )
-
-[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin5"]
-scale = Vector2( 0.212136, 1.61536 )
-shape = SubResource( 1 )
-one_way_collision = true
-
-[node name="groundzin6" type="StaticBody2D" parent="StaticBody2D/Node2D"]
-position = Vector2( 97.2809, 3.02299 )
-scale = Vector2( 1, 0.599998 )
-
-[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin6"]
-position = Vector2( -0.34243, 0.219727 )
-scale = Vector2( 0.833788, 0.104794 )
-texture = ExtResource( 2 )
-
-[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin6"]
-scale = Vector2( 0.212136, 1.61536 )
-shape = SubResource( 1 )
-one_way_collision = true
-
-[node name="groundzin7" type="StaticBody2D" parent="StaticBody2D/Node2D"]
-position = Vector2( 97.2809, 3.02299 )
-scale = Vector2( 1, 0.599998 )
-
-[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin7"]
-position = Vector2( -0.34243, 0.219727 )
-scale = Vector2( 0.833788, 0.104794 )
-texture = ExtResource( 2 )
-
-[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin7"]
-scale = Vector2( 0.212136, 1.61536 )
-shape = SubResource( 1 )
-one_way_collision = true
-
-[node name="groundzin2" type="StaticBody2D" parent="StaticBody2D/Node2D"]
-position = Vector2( -63.2783, -64.4433 )
-scale = Vector2( 1, 0.599998 )
-
-[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin2"]
-position = Vector2( -0.34243, 0.219727 )
-scale = Vector2( 0.833788, 0.104794 )
-texture = ExtResource( 2 )
-
-[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin2"]
-scale = Vector2( 0.212136, 1.61536 )
-shape = SubResource( 1 )
-one_way_collision = true
-
-[node name="groundzin8" type="StaticBody2D" parent="StaticBody2D/Node2D"]
-position = Vector2( 38.2842, -64.4433 )
-scale = Vector2( 1, 0.599998 )
-
-[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin8"]
-position = Vector2( -0.34243, 0.219727 )
-scale = Vector2( 0.833788, 0.104794 )
-texture = ExtResource( 2 )
-
-[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin8"]
-scale = Vector2( 0.212136, 1.61536 )
-shape = SubResource( 1 )
-one_way_collision = true
-
-[node name="groundzin9" type="StaticBody2D" parent="StaticBody2D/Node2D"]
-position = Vector2( 67.6406, -34.3269 )
-scale = Vector2( 1, 0.599998 )
-
-[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin9"]
-position = Vector2( -0.34243, 0.219727 )
-scale = Vector2( 0.833788, 0.104794 )
-texture = ExtResource( 2 )
-
-[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin9"]
-scale = Vector2( 0.212136, 1.61536 )
-shape = SubResource( 1 )
-one_way_collision = true
-
-[node name="groundzin3" type="StaticBody2D" parent="StaticBody2D/Node2D"]
-position = Vector2( -63.2783, -97.9824 )
-scale = Vector2( 1, 0.599998 )
-
-[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin3"]
-position = Vector2( -0.34243, 0.219727 )
-scale = Vector2( 0.833788, 0.104794 )
-texture = ExtResource( 2 )
-
-[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin3"]
-scale = Vector2( 0.212136, 1.61536 )
-shape = SubResource( 1 )
-one_way_collision = true
-
-[node name="groundzin4" type="StaticBody2D" parent="StaticBody2D/Node2D"]
-position = Vector2( 4.18626, -136.08 )
-scale = Vector2( 2.56, 0.599998 )
-
-[node name="icon" type="Sprite" parent="StaticBody2D/Node2D/groundzin4"]
-position = Vector2( -0.34243, 0.219727 )
-scale = Vector2( 0.833788, 0.104794 )
-texture = ExtResource( 2 )
-
-[node name="groundinho" type="CollisionShape2D" parent="StaticBody2D/Node2D/groundzin4"]
-scale = Vector2( 0.212136, 1.61536 )
-shape = SubResource( 1 )
-one_way_collision = true
 
 [node name="ScreenBoundaries" type="Area2D" parent="."]
 position = Vector2( 128.721, 95.2316 )
@@ -156,8 +19,269 @@ scale = Vector2( 1, 1.36798 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ScreenBoundaries"]
-position = Vector2( 140.219, 0 )
+position = Vector2( 226.953, 0 )
 scale = Vector2( 1, 1.36798 )
 shape = SubResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 127.708, 193.214 )
+
+[node name="Platforms" type="Node2D" parent="."]
+position = Vector2( 0, -9.89951 )
+
+[node name="Platform8W" type="Node2D" parent="Platforms"]
+position = Vector2( -41.0857, -57.7315 )
+
+[node name="PlatformTile" parent="Platforms/Platform8W" instance=ExtResource( 4 )]
+position = Vector2( 84.5819, 167.067 )
+
+[node name="PlatformTile2" parent="Platforms/Platform8W" instance=ExtResource( 4 )]
+position = Vector2( 100.934, 167.067 )
+
+[node name="PlatformTile3" parent="Platforms/Platform8W" instance=ExtResource( 4 )]
+position = Vector2( 117.434, 167.067 )
+
+[node name="PlatformTile4" parent="Platforms/Platform8W" instance=ExtResource( 4 )]
+position = Vector2( 134.787, 167.067 )
+
+[node name="PlatformTile5" parent="Platforms/Platform8W" instance=ExtResource( 4 )]
+position = Vector2( 152.38, 167.067 )
+
+[node name="PlatformTile6" parent="Platforms/Platform8W" instance=ExtResource( 4 )]
+position = Vector2( 168.732, 167.067 )
+
+[node name="PlatformTile7" parent="Platforms/Platform8W" instance=ExtResource( 4 )]
+position = Vector2( 185.232, 167.067 )
+
+[node name="PlatformTile8" parent="Platforms/Platform8W" instance=ExtResource( 4 )]
+position = Vector2( 202.585, 167.067 )
+
+[node name="Platform8W3" type="Node2D" parent="Platforms"]
+position = Vector2( 111.295, -57.7315 )
+
+[node name="PlatformTile5" parent="Platforms/Platform8W3" instance=ExtResource( 4 )]
+position = Vector2( 152.38, 167.067 )
+
+[node name="PlatformTile6" parent="Platforms/Platform8W3" instance=ExtResource( 4 )]
+position = Vector2( 168.732, 167.067 )
+
+[node name="PlatformTile7" parent="Platforms/Platform8W3" instance=ExtResource( 4 )]
+position = Vector2( 185.232, 167.067 )
+
+[node name="PlatformTile8" parent="Platforms/Platform8W3" instance=ExtResource( 4 )]
+position = Vector2( 202.585, 167.067 )
+
+[node name="Platform3W" type="Node2D" parent="Platforms"]
+position = Vector2( -64.4191, 10.1743 )
+
+[node name="PlatformTile" parent="Platforms/Platform3W" instance=ExtResource( 4 )]
+position = Vector2( 84.5819, 167.067 )
+
+[node name="PlatformTile2" parent="Platforms/Platform3W" instance=ExtResource( 4 )]
+position = Vector2( 100.934, 167.067 )
+
+[node name="PlatformTile3" parent="Platforms/Platform3W" instance=ExtResource( 4 )]
+position = Vector2( 117.434, 167.067 )
+
+[node name="Platform3W3" type="Node2D" parent="Platforms"]
+position = Vector2( 196.503, -89.5277 )
+
+[node name="PlatformTile" parent="Platforms/Platform3W3" instance=ExtResource( 4 )]
+position = Vector2( 84.5819, 167.067 )
+
+[node name="PlatformTile2" parent="Platforms/Platform3W3" instance=ExtResource( 4 )]
+position = Vector2( 100.934, 167.067 )
+
+[node name="PlatformTile3" parent="Platforms/Platform3W3" instance=ExtResource( 4 )]
+position = Vector2( 117.434, 167.067 )
+
+[node name="Platform3W4" type="Node2D" parent="Platforms"]
+position = Vector2( 195.796, -117.812 )
+
+[node name="PlatformTile" parent="Platforms/Platform3W4" instance=ExtResource( 4 )]
+position = Vector2( 84.5819, 167.067 )
+
+[node name="PlatformTile2" parent="Platforms/Platform3W4" instance=ExtResource( 4 )]
+position = Vector2( 100.934, 167.067 )
+
+[node name="PlatformTile3" parent="Platforms/Platform3W4" instance=ExtResource( 4 )]
+position = Vector2( 117.434, 167.067 )
+
+[node name="Platform3W5" type="Node2D" parent="Platforms"]
+position = Vector2( -54.5196, -119.933 )
+
+[node name="PlatformTile" parent="Platforms/Platform3W5" instance=ExtResource( 4 )]
+position = Vector2( 84.5819, 167.067 )
+
+[node name="PlatformTile2" parent="Platforms/Platform3W5" instance=ExtResource( 4 )]
+position = Vector2( 100.934, 167.067 )
+
+[node name="PlatformTile3" parent="Platforms/Platform3W5" instance=ExtResource( 4 )]
+position = Vector2( 117.434, 167.067 )
+
+[node name="Platform3W6" type="Node2D" parent="Platforms"]
+position = Vector2( -54.5196, -89.5277 )
+
+[node name="PlatformTile" parent="Platforms/Platform3W6" instance=ExtResource( 4 )]
+position = Vector2( 84.5819, 167.067 )
+
+[node name="PlatformTile2" parent="Platforms/Platform3W6" instance=ExtResource( 4 )]
+position = Vector2( 100.934, 167.067 )
+
+[node name="PlatformTile3" parent="Platforms/Platform3W6" instance=ExtResource( 4 )]
+position = Vector2( 117.434, 167.067 )
+
+[node name="Platform3W2" type="Node2D" parent="Platforms"]
+position = Vector2( 200.109, 10.1743 )
+
+[node name="PlatformTile" parent="Platforms/Platform3W2" instance=ExtResource( 4 )]
+position = Vector2( 84.5819, 167.067 )
+
+[node name="PlatformTile2" parent="Platforms/Platform3W2" instance=ExtResource( 4 )]
+position = Vector2( 100.934, 167.067 )
+
+[node name="PlatformTile3" parent="Platforms/Platform3W2" instance=ExtResource( 4 )]
+position = Vector2( 117.434, 167.067 )
+
+[node name="Platform4W" type="Node2D" parent="Platforms"]
+position = Vector2( -52.7524, -25.3696 )
+
+[node name="PlatformTile" parent="Platforms/Platform4W" instance=ExtResource( 4 )]
+position = Vector2( 84.5819, 167.067 )
+
+[node name="PlatformTile2" parent="Platforms/Platform4W" instance=ExtResource( 4 )]
+position = Vector2( 100.934, 167.067 )
+
+[node name="PlatformTile3" parent="Platforms/Platform4W" instance=ExtResource( 4 )]
+position = Vector2( 117.434, 167.067 )
+
+[node name="PlatformTile4" parent="Platforms/Platform4W" instance=ExtResource( 4 )]
+position = Vector2( 134.787, 167.067 )
+
+[node name="Platform8W2" type="Node2D" parent="Platforms"]
+position = Vector2( 119.646, -25.3696 )
+
+[node name="PlatformTile" parent="Platforms/Platform8W2" instance=ExtResource( 4 )]
+position = Vector2( 84.5819, 167.067 )
+
+[node name="PlatformTile2" parent="Platforms/Platform8W2" instance=ExtResource( 4 )]
+position = Vector2( 100.934, 167.067 )
+
+[node name="PlatformTile3" parent="Platforms/Platform8W2" instance=ExtResource( 4 )]
+position = Vector2( 117.434, 167.067 )
+
+[node name="PlatformTile4" parent="Platforms/Platform8W2" instance=ExtResource( 4 )]
+position = Vector2( 134.787, 167.067 )
+
+[node name="PlatformTile5" parent="Platforms/Platform8W2" instance=ExtResource( 4 )]
+position = Vector2( 152.38, 167.067 )
+
+[node name="PlatformTile6" parent="Platforms/Platform8W2" instance=ExtResource( 4 )]
+position = Vector2( 168.732, 167.067 )
+
+[node name="PlatformTile7" parent="Platforms/Platform8W2" instance=ExtResource( 4 )]
+position = Vector2( 185.232, 167.067 )
+
+[node name="PlatformTile8" parent="Platforms/Platform8W2" instance=ExtResource( 4 )]
+position = Vector2( 202.585, 167.067 )
+
+[node name="Platform8W4" type="Node2D" parent="Platforms"]
+position = Vector2( 28.1628, -89.5277 )
+
+[node name="PlatformTile" parent="Platforms/Platform8W4" instance=ExtResource( 4 )]
+position = Vector2( 84.5819, 167.067 )
+
+[node name="PlatformTile2" parent="Platforms/Platform8W4" instance=ExtResource( 4 )]
+position = Vector2( 100.934, 167.067 )
+
+[node name="PlatformTile3" parent="Platforms/Platform8W4" instance=ExtResource( 4 )]
+position = Vector2( 117.434, 167.067 )
+
+[node name="PlatformTile4" parent="Platforms/Platform8W4" instance=ExtResource( 4 )]
+position = Vector2( 134.787, 167.067 )
+
+[node name="PlatformTile5" parent="Platforms/Platform8W4" instance=ExtResource( 4 )]
+position = Vector2( 152.38, 167.067 )
+
+[node name="PlatformTile6" parent="Platforms/Platform8W4" instance=ExtResource( 4 )]
+position = Vector2( 168.732, 167.067 )
+
+[node name="PlatformTile7" parent="Platforms/Platform8W4" instance=ExtResource( 4 )]
+position = Vector2( 185.232, 167.067 )
+
+[node name="PlatformTile8" parent="Platforms/Platform8W4" instance=ExtResource( 4 )]
+position = Vector2( 202.585, 167.067 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 35.3162, 162.649 )
+
+[node name="Water" type="Node2D" parent="."]
+position = Vector2( 0.183784, 191.971 )
+
+[node name="WaterTile" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 7.81799, 0 )
+
+[node name="WaterTile2" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 23.318, 0 )
+
+[node name="WaterTile3" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 39.3371, 0 )
+
+[node name="WaterTile4" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 55.202, 0 )
+
+[node name="WaterTile5" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 70.702, 0 )
+
+[node name="WaterTile6" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 86.7211, 0 )
+
+[node name="WaterTile7" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 102.707, 0 )
+
+[node name="WaterTile8" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 118.207, 0 )
+
+[node name="WaterTile9" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 134.226, 0 )
+
+[node name="WaterTile10" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 150.091, 0 )
+
+[node name="WaterTile11" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 165.591, 0 )
+
+[node name="WaterTile12" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 181.61, 0 )
+
+[node name="WaterTile13" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 197.509, 0 )
+
+[node name="WaterTile14" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 213.009, 0 )
+
+[node name="WaterTile15" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 229.029, 0 )
+
+[node name="WaterTile16" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 244.893, 0 )
+
+[node name="WaterTile17" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 260.393, 0 )
+
+[node name="WaterTile18" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 276.413, 0 )
+
+[node name="WaterTile19" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 292.399, 0 )
+
+[node name="WaterTile20" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 307.899, 0 )
+
+[node name="WaterTile21" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 323.918, 0 )
+
+[node name="WaterTile22" parent="Water" instance=ExtResource( 3 )]
+position = Vector2( 339.783, 0 )
 
 [connection signal="body_entered" from="ScreenBoundaries" to="Player" method="_on_ScreenBoundaries_body_entered"]

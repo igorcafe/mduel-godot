@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Environment/envSprites.png" type="Texture" id=1]
+[ext_resource path="res://Environment/Water/WaterTile.gd" type="Script" id=2]
+[ext_resource path="res://effectSprites.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2.25707, 3.46119 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "no_splash"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Splash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "shake"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 7, 8, 9 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "splash"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Splash:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7, 4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Splash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="WaterTile" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -7.96579 )
+texture = ExtResource( 1 )
+vframes = 10
+frame = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.0625, -3.784 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/no_splash = SubResource( 4 )
+anims/shake = SubResource( 1 )
+anims/splash = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Splash" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -20.4253 )
+texture = ExtResource( 3 )
+vframes = 35
+frame = 4
+
+[connection signal="body_entered" from="." to="." method="_on_WaterTile_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
