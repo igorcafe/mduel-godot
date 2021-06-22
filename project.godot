@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player/Player.gd"
+} ]
+_global_script_class_icons={
+"Player": ""
+}
+
 [application]
 
 config/name="MDuel PoC"
@@ -16,10 +26,9 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=256
+window/size/width=341
 window/size/height=192
-window/size/test_width=512
-window/size/test_height=384
+window/size/fullscreen=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
