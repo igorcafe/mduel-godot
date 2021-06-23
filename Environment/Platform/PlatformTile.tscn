@@ -6,6 +6,8 @@
 extents = Vector2( 7.29137, 1.7238 )
 
 [node name="PlatformTile" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 3.18198 )
