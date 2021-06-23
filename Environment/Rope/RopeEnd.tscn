@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Environment/envSprites.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2.53551, 2.51124 )
+
+[node name="RopeEnd" type="Area2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.52556, -8.04107 )
+texture = ExtResource( 1 )
+vframes = 10
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -2.68036 )
+shape = SubResource( 1 )
