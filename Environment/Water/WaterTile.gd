@@ -8,22 +8,19 @@ var animation_delay
 const ANIM_SPEED = .5
 onready var anim_player = $AnimationPlayer
 onready var timer = $Timer
+onready var water_sprite = $WaterSprite
+onready var splash_sprite = $SplashSprite
 
 func _ready():
 	animation_delay = rand_range(0, 1)
-	timer.start(animation_delay)
-
+	yield(get_tree().create_timer(animation_delay), "timeout")
+	water_sprite.play("default")
+#	anim_player.play("shake", -1, ANIM_SPEED)
 func _on_Timer_timeout():
-	anim_player.play("shake", -1, ANIM_SPEED)
 	pass
 
 
 func _on_WaterTile_body_entered(body):
 	var player = body as Player
 	if player:
-		if anim_player.current_animation != "splash":
-			water_splash()
-		player.drown()
-
-func water_splash():
-	anim_player.play("splash")
+		splash_sprite.play("splash")
