@@ -1,61 +1,77 @@
 extends KinematicBody2D
 class_name Player
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+export var player_identifier = "p1"
 export var move_speed = 100
 export var jump_speed = 200
+export var rope_speed = 70
 export var facing_right = true
-export var gravity = 20
-#export var animation_tree
+export var default_gravity = 10
 
+
+var gravity = default_gravity
 var vel = Vector2.ZERO
+var keys = {}
+
 onready var anim_tree = $AnimationTree
+onready var coll_shape = $CollisionShape2D
 onready var state_machine = anim_tree["parameters/playback"]
+onready var player_sprite = $PlayerSprite
+onready var boots_sprite = $BootsSprite
 
 func _ready():
-#	animation_tree as AnimationTree
+	var id = player_identifier
+	var game_keys = ['up', 'down', 'left', 'right', 'item']
+	for key in game_keys:
+		keys[key] = id + '_' + key
+	flip_h(not facing_right)
 	anim_tree.active = true
 
 func _physics_process(delta):
-	var h_move = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	var h_move = \
+		strength(keys['right']) \
+		- strength(keys['left'])
+		
 	if is_on_floor():
 		if state() in ["idle", "run"]:
 			vel.x = move_speed * h_move
-		
 		state_machine.travel("idle")
-		
 		if vel.x and state() in ["idle", "run"]:
 			run()
-			
-		if Input.is_action_just_pressed("ui_up"):
-			jump(1)
-		
-		if Input.is_action_just_pressed("ui_accept"):
+		if just_pressed(keys['up']):
+			jump()
+		if just_pressed(keys['item']):
 			use_item()
-				
-		if Input.is_action_pressed("ui_down") and state() in ["duck", "idle"]:
+		if pressed(keys['down']) and state() in ["duck", "idle"]:
 			duck()
-			
-		elif Input.is_action_just_pressed("ui_down"):
+		elif just_pressed(keys['down']):
 			state_machine.travel("roll_forward")
 	
 	elif state() in ["run", "idle"]:
 		state_machine.travel("fall")
+	
+	elif state() in ["rope_idle", "rope_climbing"]:
+		vel.x = move_speed * h_move
+		rope()
 		
 	vel.y += gravity
 	vel = move_and_slide(vel, Vector2.UP)
 	
-	
+
+func flip_h(value = null):
+	if value == null:
+		value = player_sprite.flip_h
+		if (vel.x > 0 and player_sprite.flip_h) \
+		or (vel.x < 0 and not player_sprite.flip_h):
+			value = not player_sprite.flip_h
+	player_sprite.flip_h = value
+	boots_sprite.flip_h = value
+		
 func run():
 	state_machine.travel("run")
-	$Sprite.flip_h = vel.x <= 0 or not facing_right
-	$BootsSprite.flip_h = $Sprite.flip_h
-#	if vel.x > 0:
-#		$Sprite.flip_h = not facing_right
+	flip_h()
 #	else:
-#		$Sprite.flip_h = facing_right
+#	$BootsSprite.flip_h = $Sprite.flip_h
 
 
 func duck():
@@ -63,7 +79,31 @@ func duck():
 	state_machine.travel("duck")
 
 
-func jump(multi):
+func set_coll_disabled(value):
+	coll_shape.disabled = value
+	
+func get_coll_disabled():
+	return coll_shape.disabled
+
+
+func rope():
+	set_collision_mask_bit(1, false)
+	gravity = 0
+	if vel.x:
+		set_collision_mask_bit(1, true)
+		gravity = default_gravity
+		state_machine.travel("idle")
+	elif pressed(keys['up']):
+		vel.y = -rope_speed
+		state_machine.travel("rope_climbing")
+	elif pressed(keys['down']):
+		vel.y = +rope_speed
+		state_machine.travel("rope_climbing")
+	else:
+		vel.y = 0
+		state_machine.travel("rope_idle")
+
+func jump(multi = 1):
 	if not state() in ["run", "idle"]:
 		return
 	if not vel.x:
@@ -72,10 +112,8 @@ func jump(multi):
 		state_machine.travel("jump_running")
 	vel.y = -jump_speed * multi
 
-
 func state():
 	return state_machine.get_current_node()
-
 
 func use_item():
 	jump(1.35)
@@ -91,7 +129,15 @@ func thrown_backwards():
 
 func _on_ScreenBoundaries_body_entered(body):
 	thrown_backwards()
-#	roll_backwards()
 
 func drown():
 	print("drown")
+
+func pressed(key):
+	return Input.is_action_pressed(key)
+	
+func just_pressed(key):
+	return Input.is_action_just_pressed(key)
+	
+func strength(key):
+	return Input.get_action_strength(key)
