@@ -1,7 +1,7 @@
 extends KinematicBody2D
 class_name Player
 
-export var player_identifier = "p1"
+export var id = "p1"
 export var move_speed = 100
 export var jump_speed = 200
 export var rope_speed = 70
@@ -14,6 +14,15 @@ var gravity = default_gravity
 var vel = Vector2.ZERO
 var keys = {}
 
+# Input flags
+# p = pressed, jp = just_pressed
+var p_up := false
+var jp_up := false
+var p_down := false
+var jp_down := false
+var p_left := false
+var p_right := false
+var jp_item := false
 onready var anim_tree = $AnimationTree
 onready var coll_shape = $CollisionShape2D
 onready var state_machine = anim_tree["parameters/playback"]
@@ -25,10 +34,15 @@ func _ready():
 	flip_h(not facing_right)
 	anim_tree.active = true
 
-func _physics_process(delta):
-	var h_move = \
-		strength(keys['right']) \
-		- strength(keys['left'])
+func _physics_process(_delta):
+	p_up = Input.is_action_pressed(id + '_up')
+	jp_up = Input.is_action_just_pressed(id + '_up')
+	p_down = Input.is_action_pressed(id + '_down')
+	jp_down = Input.is_action_just_pressed(id + '_down')
+	p_left = Input.is_action_pressed(id + '_left')
+	p_right = Input.is_action_pressed(id + '_right')
+	jp_item = Input.is_action_just_pressed(id + '_item')
+	on_floor = is_on_floor()
 		
 	if is_on_floor():
 		if state() in ["idle", "run"]:
