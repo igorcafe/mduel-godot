@@ -7,6 +7,7 @@ export var jump_speed = 200
 export var rope_speed = 70
 export var facing_right = true
 export var default_gravity = 10
+export var player_texture: Texture
 
 
 var gravity = default_gravity
@@ -20,10 +21,7 @@ onready var player_sprite = $PlayerSprite
 onready var boots_sprite = $BootsSprite
 
 func _ready():
-	var id = player_identifier
-	var game_keys = ['up', 'down', 'left', 'right', 'item']
-	for key in game_keys:
-		keys[key] = id + '_' + key
+	player_sprite.texture = player_texture
 	flip_h(not facing_right)
 	anim_tree.active = true
 
