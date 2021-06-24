@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Environment/Rope/RopeSegment.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Environment/Water/WaterTile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Environment/Platform/PlatformTile.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Environment/Rope/RopeEnd.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ScreenBoundaries.gd" type="Script" id=6]
+[ext_resource path="res://Player/playerSprite1.png" type="Texture" id=7]
+[ext_resource path="res://Player/playerSprite2.png" type="Texture" id=8]
+[ext_resource path="res://Environment/Rope/Rope.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 99.7786 )
@@ -17,12 +18,12 @@ position = Vector2( 128.721, 95.2316 )
 scale = Vector2( 0.978315, 0.978315 )
 script = ExtResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenBoundaries"]
+[node name="left" type="CollisionShape2D" parent="ScreenBoundaries"]
 position = Vector2( -142.388, 0 )
 scale = Vector2( 1, 1.36798 )
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ScreenBoundaries"]
+[node name="right" type="CollisionShape2D" parent="ScreenBoundaries"]
 position = Vector2( 226.953, 0 )
 scale = Vector2( 1, 1.36798 )
 shape = SubResource( 1 )
@@ -34,13 +35,13 @@ position = Vector2( 0, -9.89951 )
 position = Vector2( -41.0857, -57.7315 )
 
 [node name="PlatformTile" parent="Platforms/Platform8W" instance=ExtResource( 4 )]
-position = Vector2( 84.5819, 167.067 )
+position = Vector2( 85.5382, 167.067 )
 
 [node name="PlatformTile2" parent="Platforms/Platform8W" instance=ExtResource( 4 )]
-position = Vector2( 100.934, 167.067 )
+position = Vector2( 102.058, 167.067 )
 
 [node name="PlatformTile3" parent="Platforms/Platform8W" instance=ExtResource( 4 )]
-position = Vector2( 117.434, 167.067 )
+position = Vector2( 118.453, 167.067 )
 
 [node name="PlatformTile4" parent="Platforms/Platform8W" instance=ExtResource( 4 )]
 position = Vector2( 134.787, 167.067 )
@@ -61,16 +62,16 @@ position = Vector2( 202.585, 167.067 )
 position = Vector2( 111.295, -57.7315 )
 
 [node name="PlatformTile5" parent="Platforms/Platform8W3" instance=ExtResource( 4 )]
-position = Vector2( 152.38, 167.067 )
+position = Vector2( 149.214, 167.067 )
 
 [node name="PlatformTile6" parent="Platforms/Platform8W3" instance=ExtResource( 4 )]
-position = Vector2( 168.732, 167.067 )
+position = Vector2( 165.566, 167.067 )
 
 [node name="PlatformTile7" parent="Platforms/Platform8W3" instance=ExtResource( 4 )]
-position = Vector2( 185.232, 167.067 )
+position = Vector2( 182.066, 167.067 )
 
 [node name="PlatformTile8" parent="Platforms/Platform8W3" instance=ExtResource( 4 )]
-position = Vector2( 202.585, 167.067 )
+position = Vector2( 199.419, 167.067 )
 
 [node name="Platform3W" type="Node2D" parent="Platforms"]
 position = Vector2( -64.4191, 10.1743 )
@@ -88,49 +89,49 @@ position = Vector2( 117.434, 167.067 )
 position = Vector2( 196.503, -89.5277 )
 
 [node name="PlatformTile" parent="Platforms/Platform3W3" instance=ExtResource( 4 )]
-position = Vector2( 84.5819, 167.067 )
+position = Vector2( 80.006, 167.067 )
 
 [node name="PlatformTile2" parent="Platforms/Platform3W3" instance=ExtResource( 4 )]
-position = Vector2( 100.934, 167.067 )
+position = Vector2( 96.3581, 167.067 )
 
 [node name="PlatformTile3" parent="Platforms/Platform3W3" instance=ExtResource( 4 )]
-position = Vector2( 117.434, 167.067 )
+position = Vector2( 112.858, 167.067 )
 
 [node name="Platform3W4" type="Node2D" parent="Platforms"]
 position = Vector2( 195.796, -117.812 )
 
 [node name="PlatformTile" parent="Platforms/Platform3W4" instance=ExtResource( 4 )]
-position = Vector2( 84.5819, 167.067 )
+position = Vector2( 72.713, 165.211 )
 
 [node name="PlatformTile2" parent="Platforms/Platform3W4" instance=ExtResource( 4 )]
-position = Vector2( 100.934, 167.067 )
+position = Vector2( 89.0651, 165.211 )
 
 [node name="PlatformTile3" parent="Platforms/Platform3W4" instance=ExtResource( 4 )]
-position = Vector2( 117.434, 167.067 )
+position = Vector2( 105.565, 165.211 )
 
 [node name="Platform3W5" type="Node2D" parent="Platforms"]
 position = Vector2( -54.5196, -119.933 )
 
 [node name="PlatformTile" parent="Platforms/Platform3W5" instance=ExtResource( 4 )]
-position = Vector2( 84.5819, 167.067 )
+position = Vector2( 91.0345, 167.067 )
 
 [node name="PlatformTile2" parent="Platforms/Platform3W5" instance=ExtResource( 4 )]
-position = Vector2( 100.934, 167.067 )
+position = Vector2( 107.387, 167.067 )
 
 [node name="PlatformTile3" parent="Platforms/Platform3W5" instance=ExtResource( 4 )]
-position = Vector2( 117.434, 167.067 )
+position = Vector2( 123.887, 167.067 )
 
 [node name="Platform3W6" type="Node2D" parent="Platforms"]
 position = Vector2( -54.5196, -89.5277 )
 
 [node name="PlatformTile" parent="Platforms/Platform3W6" instance=ExtResource( 4 )]
-position = Vector2( 84.5819, 167.067 )
+position = Vector2( 83.0345, 167.067 )
 
 [node name="PlatformTile2" parent="Platforms/Platform3W6" instance=ExtResource( 4 )]
-position = Vector2( 100.934, 167.067 )
+position = Vector2( 99.3866, 167.067 )
 
 [node name="PlatformTile3" parent="Platforms/Platform3W6" instance=ExtResource( 4 )]
-position = Vector2( 117.434, 167.067 )
+position = Vector2( 115.887, 167.067 )
 
 [node name="Platform3W2" type="Node2D" parent="Platforms"]
 position = Vector2( 200.109, 10.1743 )
@@ -148,16 +149,16 @@ position = Vector2( 117.434, 167.067 )
 position = Vector2( -52.7524, -25.3696 )
 
 [node name="PlatformTile" parent="Platforms/Platform4W" instance=ExtResource( 4 )]
-position = Vector2( 84.5819, 167.067 )
+position = Vector2( 81.2673, 167.067 )
 
 [node name="PlatformTile2" parent="Platforms/Platform4W" instance=ExtResource( 4 )]
-position = Vector2( 100.934, 167.067 )
+position = Vector2( 97.6194, 167.067 )
 
 [node name="PlatformTile3" parent="Platforms/Platform4W" instance=ExtResource( 4 )]
-position = Vector2( 117.434, 167.067 )
+position = Vector2( 114.119, 167.067 )
 
 [node name="PlatformTile4" parent="Platforms/Platform4W" instance=ExtResource( 4 )]
-position = Vector2( 134.787, 167.067 )
+position = Vector2( 131.472, 167.067 )
 
 [node name="Platform8W2" type="Node2D" parent="Platforms"]
 position = Vector2( 119.646, -25.3696 )
@@ -215,79 +216,21 @@ position = Vector2( 202.585, 167.067 )
 
 [node name="Ropes" type="Node2D" parent="."]
 
-[node name="Rope1" type="Node2D" parent="Ropes"]
-position = Vector2( 53.1342, 155.642 )
+[node name="Rope1" parent="Ropes" instance=ExtResource( 9 )]
+position = Vector2( 52.972, 163.793 )
 
-[node name="RopeSegment" parent="Ropes/Rope1" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, 0 )
-
-[node name="RopeSegment2" parent="Ropes/Rope1" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -16.0411 )
-
-[node name="RopeSegment3" parent="Ropes/Rope1" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -32.0822 )
-
-[node name="RopeSegment4" parent="Ropes/Rope1" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -48.125 )
-
-[node name="RopeSegment5" parent="Ropes/Rope1" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -64.1661 )
-
-[node name="RopeSegment6" parent="Ropes/Rope1" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -80.2072 )
-
-[node name="RopeSegment7" parent="Ropes/Rope1" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -96.25 )
-
-[node name="RopeSegment8" parent="Ropes/Rope1" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -112.291 )
-
-[node name="RopeSegment9" parent="Ropes/Rope1" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -128.332 )
-
-[node name="RopeEnd" parent="Ropes/Rope1" instance=ExtResource( 5 )]
-position = Vector2( -0.156128, -144.373 )
-
-[node name="Rope2" type="Node2D" parent="Ropes"]
-position = Vector2( 284.691, 155.642 )
-
-[node name="RopeSegment" parent="Ropes/Rope2" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, 0 )
-
-[node name="RopeSegment2" parent="Ropes/Rope2" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -16.0411 )
-
-[node name="RopeSegment3" parent="Ropes/Rope2" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -32.0822 )
-
-[node name="RopeSegment4" parent="Ropes/Rope2" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -48.125 )
-
-[node name="RopeSegment5" parent="Ropes/Rope2" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -64.1661 )
-
-[node name="RopeSegment6" parent="Ropes/Rope2" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -80.2072 )
-
-[node name="RopeSegment7" parent="Ropes/Rope2" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -96.25 )
-
-[node name="RopeSegment8" parent="Ropes/Rope2" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -112.291 )
-
-[node name="RopeSegment9" parent="Ropes/Rope2" instance=ExtResource( 2 )]
-position = Vector2( -0.156128, -128.332 )
-
-[node name="RopeEnd" parent="Ropes/Rope2" instance=ExtResource( 5 )]
-position = Vector2( -0.156128, -144.373 )
+[node name="Rope2" parent="Ropes" instance=ExtResource( 9 )]
+position = Vector2( 284.097, 163.793 )
 
 [node name="Player1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 45.3318, 159.314 )
+position = Vector2( 35.4777, 159.314 )
+player_texture = ExtResource( 7 )
 
 [node name="Player2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 301.043, 159.314 )
-player_identifier = "p2"
+id = "p2"
 facing_right = false
+player_texture = ExtResource( 8 )
 
 [node name="Water" type="Node2D" parent="."]
 position = Vector2( 0.183784, 191.971 )
