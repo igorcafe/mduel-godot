@@ -120,7 +120,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "jump_running"
-length = 0.8
+length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
@@ -259,7 +259,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=11]
-length = 0.35
+length = 0.4
 loop = true
 step = 0.025
 tracks/0/type = "value"
@@ -269,10 +269,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.125, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 2, 3, 4 ]
+"values": [ 2, 3, 4, 1 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("BootsSprite:frame")
@@ -281,7 +281,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.125, 0.25 ),
+"times": PoolRealArray( 0, 0.1, 0.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 2, 3, 4 ]
@@ -405,30 +405,30 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachine" id=47]
 states/duck/node = SubResource( 13 )
-states/duck/position = Vector2( 270.469, -131.828 )
+states/duck/position = Vector2( 547.631, -110.495 )
 states/fall/node = SubResource( 14 )
-states/fall/position = Vector2( 269.667, 521.105 )
+states/fall/position = Vector2( -68.9997, 544.906 )
 states/idle/node = SubResource( 15 )
-states/idle/position = Vector2( 426.276, 139.889 )
+states/idle/position = Vector2( 548.943, 31.889 )
 states/jump_in_place/node = SubResource( 16 )
-states/jump_in_place/position = Vector2( 59.121, 333.711 )
+states/jump_in_place/position = Vector2( 92.4543, 78.159 )
 states/jump_running/node = SubResource( 17 )
-states/jump_running/position = Vector2( 602.15, 512.956 )
+states/jump_running/position = Vector2( 716.817, 491.623 )
 states/roll_backward/node = SubResource( 18 )
-states/roll_backward/position = Vector2( 876.154, 217.074 )
+states/roll_backward/position = Vector2( 922.821, 386.309 )
 states/roll_forward/node = SubResource( 19 )
-states/roll_forward/position = Vector2( 609.023, -102.333 )
+states/roll_forward/position = Vector2( 537.023, 377.667 )
 states/rope_climbing/node = SubResource( 20 )
-states/rope_climbing/position = Vector2( 167.804, 103.047 )
+states/rope_climbing/position = Vector2( 819.77, 77.7137 )
 states/rope_idle/node = SubResource( 21 )
-states/rope_idle/position = Vector2( 8.67126, 4.38005 )
+states/rope_idle/position = Vector2( 951.338, 180.38 )
 states/run/node = SubResource( 22 )
-states/run/position = Vector2( 887.301, 11.2963 )
+states/run/position = Vector2( 317.968, 460.63 )
 states/thrown_backward/node = SubResource( 23 )
-states/thrown_backward/position = Vector2( 875.263, 365.155 )
+states/thrown_backward/position = Vector2( 879.562, 601.155 )
 transitions = [ "idle", "jump_in_place", SubResource( 24 ), "jump_in_place", "idle", SubResource( 25 ), "idle", "run", SubResource( 26 ), "run", "idle", SubResource( 27 ), "run", "jump_running", SubResource( 28 ), "idle", "fall", SubResource( 29 ), "jump_in_place", "fall", SubResource( 30 ), "jump_running", "fall", SubResource( 31 ), "fall", "idle", SubResource( 32 ), "roll_forward", "idle", SubResource( 33 ), "run", "roll_forward", SubResource( 34 ), "idle", "duck", SubResource( 35 ), "duck", "idle", SubResource( 36 ), "jump_running", "idle", SubResource( 37 ), "run", "fall", SubResource( 38 ), "jump_running", "thrown_backward", SubResource( 39 ), "thrown_backward", "roll_backward", SubResource( 40 ), "roll_backward", "idle", SubResource( 41 ), "fall", "thrown_backward", SubResource( 42 ), "idle", "rope_climbing", SubResource( 43 ), "rope_climbing", "rope_idle", SubResource( 44 ), "rope_idle", "rope_climbing", SubResource( 45 ), "rope_climbing", "idle", SubResource( 46 ) ]
 start_node = "idle"
-graph_offset = Vector2( -86.7409, -177.647 )
+graph_offset = Vector2( 18.3727, 442.063 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=48]
 
@@ -562,10 +562,10 @@ nodes/moving_y/position = Vector2( 373.333, 666.667 )
 nodes/output/position = Vector2( 1360, 133.333 )
 nodes/rolling/node = SubResource( 67 )
 nodes/rolling/position = Vector2( 346.667, 240 )
-node_connections = [ "ducking", 0, "Animation", "ducking", 1, "Animation 10", "ground_moving_x", 0, "ducking", "ground_moving_x", 1, "rolling", "in_air", 0, "ground_moving_x", "in_air", 1, "in_rope", "in_rope", 0, "air_moving_x", "in_rope", 1, "moving_y", "moving_y", 0, "Animation 7", "moving_y", 1, "Animation 8", "rolling", 0, "Animation 2" ]
+node_connections = [ "moving_y", 0, "Animation 7", "moving_y", 1, "Animation 8", "ducking", 0, "Animation", "ducking", 1, "Animation 10", "ground_moving_x", 0, "ducking", "ground_moving_x", 1, "rolling", "in_air", 0, "ground_moving_x", "in_air", 1, "in_rope", "in_rope", 0, "air_moving_x", "in_rope", 1, "moving_y", "rolling", 0, "Animation 2" ]
 
 [node name="Player" type="KinematicBody2D"]
-collision_mask = 3
+collision_mask = 7
 script = ExtResource( 2 )
 move_speed = 70
 jump_speed = 190
@@ -576,6 +576,7 @@ texture = ExtResource( 1 )
 vframes = 68
 
 [node name="BootsSprite" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, -11.996 )
 texture = ExtResource( 4 )
 vframes = 68
