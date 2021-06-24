@@ -562,10 +562,10 @@ nodes/moving_y/position = Vector2( 373.333, 666.667 )
 nodes/output/position = Vector2( 1360, 133.333 )
 nodes/rolling/node = SubResource( 67 )
 nodes/rolling/position = Vector2( 346.667, 240 )
-node_connections = [ "moving_y", 0, "Animation 7", "moving_y", 1, "Animation 8", "ducking", 0, "Animation", "ducking", 1, "Animation 10", "ground_moving_x", 0, "ducking", "ground_moving_x", 1, "rolling", "in_air", 0, "ground_moving_x", "in_air", 1, "in_rope", "in_rope", 0, "air_moving_x", "in_rope", 1, "moving_y", "rolling", 0, "Animation 2" ]
+node_connections = [ "in_rope", 0, "air_moving_x", "in_rope", 1, "moving_y", "in_air", 0, "ground_moving_x", "in_air", 1, "in_rope", "moving_y", 0, "Animation 7", "moving_y", 1, "Animation 8", "rolling", 0, "Animation 2", "ground_moving_x", 0, "ducking", "ground_moving_x", 1, "rolling", "ducking", 0, "Animation", "ducking", 1, "Animation 10" ]
 
 [node name="Player" type="KinematicBody2D"]
-collision_mask = 7
+collision_mask = 127
 script = ExtResource( 2 )
 move_speed = 70
 jump_speed = 190

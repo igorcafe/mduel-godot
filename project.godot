@@ -108,6 +108,16 @@ p2_item={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Ground"
+2d_physics/layer_3="Rope"
+2d_physics/layer_4="RopeEnds"
+2d_physics/layer_5="SideBoundaries"
+2d_physics/layer_6="Water"
+2d_physics/layer_7="Item"
+
 [locale]
 
 locale_filter=[ 1, [ "en_US" ] ]
