@@ -615,15 +615,3 @@ parameters/in_rope/current = 0
 parameters/moving_x/current = 0
 parameters/moving_y/current = 0
 parameters/rolling/current = 0
-
-[node name="ShieldSprite" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, -11.996 )
-
-[node name="DunceSprite" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, -11.996 )
-
-[node name="Sprite4" type="Sprite" parent="."]
-visible = false
-position = Vector2( 0, -11.996 )
