@@ -1,19 +1,19 @@
 extends KinematicBody2D
 class_name Player
 
-export var id = "p1"
-export var move_speed = 100
-export var jump_speed = 200
-export var rope_speed = 70
-export var facing_right = true
-export var default_gravity = 10
+export var id := "p1"
+export var move_speed := 100
+export var jump_speed := 200
+export var rope_speed := 70
+export var facing_right := true
+export var default_gravity := 10.0
 export var player_texture: Texture
 
 enum States { GROUND, AIR, ROPE }
 var generic_state = States.ROPE
-var gravity = default_gravity
-var vel = Vector2.ZERO
-var keys = {}
+var gravity := default_gravity
+var vel := Vector2.ZERO
+var rope_position := Vector2.ZERO
 
 # Input flags
 # p = pressed, jp = just_pressed
@@ -115,10 +115,6 @@ func _physics_process(_delta):
 				state_machine.travel(travel_to)
 	
 		States.ROPE:
-			set_collision_mask_bit(1, false)
-			set_collision_mask_bit(3, true)
-			gravity = 0
-			
 			vel.x = (int(p_right) - int(p_left)) * rope_speed
 			if vel.x or not touching_rope:
 				set_collision_mask_bit(1, true)
@@ -127,6 +123,10 @@ func _physics_process(_delta):
 				state_machine.travel("idle")
 				generic_state = States.GROUND
 			else:
+				set_collision_mask_bit(1, false)
+				set_collision_mask_bit(3, true)
+				global_position.x = rope_position.x
+				gravity = 0
 				vel.y = (int(p_down) - int(p_up)) * rope_speed
 				if vel.y:
 					travel_to = "rope_climbing"
