@@ -2,7 +2,7 @@ extends KinematicBody2D
 class_name Player
 
 export var id := "p1"
-export var move_speed := 100
+export var move_speed := 70
 export var jump_speed := 200
 export var rope_speed := 70
 export var facing_right := true
@@ -14,6 +14,7 @@ var generic_state = States.ROPE
 var gravity := default_gravity
 var vel := Vector2.ZERO
 var rope_position := Vector2.ZERO
+var travel_to
 
 # Input flags
 # p = pressed, jp = just_pressed
@@ -33,7 +34,6 @@ var can_jump := false
 var has_jumped := false
 var being_dragged := false
 var touching_rope := false
-var travel_to
 
 onready var anim_tree = $AnimationTree
 onready var coll_shape = $CollisionShape2D
@@ -146,6 +146,7 @@ func flip_h(value = null):
 			value = not player_sprite.flip_h
 	player_sprite.flip_h = value
 	boots_sprite.flip_h = value
+	facing_right = not value
 		
 
 func jump(multi = 1):
