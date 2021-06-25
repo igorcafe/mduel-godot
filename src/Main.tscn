@@ -246,6 +246,8 @@ position = Vector2( 0.183784, 191.971 )
 collision_layer = 32
 collision_mask = 0
 script = ExtResource( 2 )
+water_count = 22
+tile_scene = ExtResource( 3 )
 splash_scene = ExtResource( 5 )
 
 [node name="WaterTile" parent="Water" instance=ExtResource( 3 )]

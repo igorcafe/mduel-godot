@@ -1,8 +1,7 @@
 extends Node2D
 
 var animation_delay
-const ANIM_SPEED = .5
-onready var anim_player = $AnimationPlayer
+const ANIM_SPEED = 0.5
 onready var water_sprite = $WaterSprite
 
 func _ready():
