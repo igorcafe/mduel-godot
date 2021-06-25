@@ -336,6 +336,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=12]
+resource_name = "throwed_backward"
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -361,6 +362,23 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 28, 29 ]
+}
+
+[sub_resource type="Animation" id=74]
+resource_name = "throwed_forward"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 26, 27 ]
 }
 
 [sub_resource type="AnimationNodeAnimation" id=13]
@@ -394,8 +412,11 @@ animation = "rope_idle"
 [sub_resource type="AnimationNodeAnimation" id=22]
 animation = "run"
 
-[sub_resource type="AnimationNodeAnimation" id=23]
-animation = "thrown_backward"
+[sub_resource type="AnimationNodeAnimation" id=70]
+animation = "throwed_backward"
+
+[sub_resource type="AnimationNodeAnimation" id=75]
+animation = "throwed_forward"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=24]
 
@@ -433,15 +454,9 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=38]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=39]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=40]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=41]
 switch_mode = 2
 auto_advance = true
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=42]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=43]
 
@@ -450,6 +465,18 @@ auto_advance = true
 [sub_resource type="AnimationNodeStateMachineTransition" id=45]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=46]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=71]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=72]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=73]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=76]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=77]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=78]
 
 [sub_resource type="AnimationNodeStateMachine" id=47]
 states/duck/node = SubResource( 13 )
@@ -465,18 +492,20 @@ states/jump_running/position = Vector2( 716.817, 491.623 )
 states/roll_backward/node = SubResource( 18 )
 states/roll_backward/position = Vector2( 922.821, 386.309 )
 states/roll_forward/node = SubResource( 19 )
-states/roll_forward/position = Vector2( 537.023, 377.667 )
+states/roll_forward/position = Vector2( 515.69, 349.667 )
 states/rope_climbing/node = SubResource( 20 )
 states/rope_climbing/position = Vector2( 819.77, 77.7137 )
 states/rope_idle/node = SubResource( 21 )
 states/rope_idle/position = Vector2( 951.338, 180.38 )
 states/run/node = SubResource( 22 )
-states/run/position = Vector2( 317.968, 460.63 )
-states/thrown_backward/node = SubResource( 23 )
-states/thrown_backward/position = Vector2( 879.562, 601.155 )
-transitions = [ "idle", "jump_in_place", SubResource( 24 ), "jump_in_place", "idle", SubResource( 25 ), "idle", "run", SubResource( 26 ), "run", "idle", SubResource( 27 ), "run", "jump_running", SubResource( 28 ), "idle", "fall", SubResource( 29 ), "jump_in_place", "fall", SubResource( 30 ), "jump_running", "fall", SubResource( 31 ), "fall", "idle", SubResource( 32 ), "roll_forward", "idle", SubResource( 33 ), "run", "roll_forward", SubResource( 34 ), "idle", "duck", SubResource( 35 ), "duck", "idle", SubResource( 36 ), "jump_running", "idle", SubResource( 37 ), "run", "fall", SubResource( 38 ), "jump_running", "thrown_backward", SubResource( 39 ), "thrown_backward", "roll_backward", SubResource( 40 ), "roll_backward", "idle", SubResource( 41 ), "fall", "thrown_backward", SubResource( 42 ), "idle", "rope_climbing", SubResource( 43 ), "rope_climbing", "rope_idle", SubResource( 44 ), "rope_idle", "rope_climbing", SubResource( 45 ), "rope_climbing", "idle", SubResource( 46 ) ]
+states/run/position = Vector2( 273.968, 433.963 )
+states/throwed_backward/node = SubResource( 70 )
+states/throwed_backward/position = Vector2( 730.799, 714.567 )
+states/throwed_forward/node = SubResource( 75 )
+states/throwed_forward/position = Vector2( 502.211, 603.806 )
+transitions = [ "idle", "jump_in_place", SubResource( 24 ), "jump_in_place", "idle", SubResource( 25 ), "idle", "run", SubResource( 26 ), "run", "idle", SubResource( 27 ), "run", "jump_running", SubResource( 28 ), "idle", "fall", SubResource( 29 ), "jump_in_place", "fall", SubResource( 30 ), "jump_running", "fall", SubResource( 31 ), "fall", "idle", SubResource( 32 ), "roll_forward", "idle", SubResource( 33 ), "run", "roll_forward", SubResource( 34 ), "idle", "duck", SubResource( 35 ), "duck", "idle", SubResource( 36 ), "jump_running", "idle", SubResource( 37 ), "run", "fall", SubResource( 38 ), "roll_backward", "idle", SubResource( 41 ), "idle", "rope_climbing", SubResource( 43 ), "rope_climbing", "rope_idle", SubResource( 44 ), "rope_idle", "rope_climbing", SubResource( 45 ), "rope_climbing", "idle", SubResource( 46 ), "fall", "throwed_backward", SubResource( 71 ), "jump_running", "throwed_backward", SubResource( 72 ), "throwed_backward", "roll_backward", SubResource( 73 ), "jump_running", "throwed_forward", SubResource( 76 ), "throwed_forward", "roll_forward", SubResource( 77 ), "fall", "throwed_forward", SubResource( 78 ) ]
 start_node = "idle"
-graph_offset = Vector2( 18.3727, 442.063 )
+graph_offset = Vector2( -246.122, -36.5275 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=48]
 
@@ -610,12 +639,14 @@ nodes/moving_y/position = Vector2( 373.333, 666.667 )
 nodes/output/position = Vector2( 1360, 133.333 )
 nodes/rolling/node = SubResource( 67 )
 nodes/rolling/position = Vector2( 346.667, 240 )
-node_connections = [ "in_rope", 0, "air_moving_x", "in_rope", 1, "moving_y", "in_air", 0, "ground_moving_x", "in_air", 1, "in_rope", "moving_y", 0, "Animation 7", "moving_y", 1, "Animation 8", "rolling", 0, "Animation 2", "ground_moving_x", 0, "ducking", "ground_moving_x", 1, "rolling", "ducking", 0, "Animation", "ducking", 1, "Animation 10" ]
+node_connections = [ "ducking", 0, "Animation", "ducking", 1, "Animation 10", "in_rope", 0, "air_moving_x", "in_rope", 1, "moving_y", "in_air", 0, "ground_moving_x", "in_air", 1, "in_rope", "moving_y", 0, "Animation 7", "moving_y", 1, "Animation 8", "ground_moving_x", 0, "ducking", "ground_moving_x", 1, "rolling", "rolling", 0, "Animation 2" ]
+
+[sub_resource type="RectangleShape2D" id=69]
+extents = Vector2( 6.8842, 11.4799 )
 
 [node name="Player" type="KinematicBody2D"]
 collision_mask = 127
 script = ExtResource( 2 )
-move_speed = 70
 jump_speed = 190
 
 [node name="PlayerSprite" type="Sprite" parent="."]
@@ -630,8 +661,7 @@ texture = ExtResource( 4 )
 vframes = 68
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0.297302, -2.33401 )
+position = Vector2( -0.332661, -2.33401 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -645,7 +675,8 @@ anims/roll_forward = SubResource( 8 )
 anims/rope_climbing = SubResource( 9 )
 anims/rope_idle = SubResource( 10 )
 anims/run = SubResource( 11 )
-anims/thrown_backward = SubResource( 12 )
+anims/throwed_backward = SubResource( 12 )
+anims/throwed_forward = SubResource( 74 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 47 )
