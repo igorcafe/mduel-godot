@@ -229,12 +229,14 @@ position = Vector2( 52.972, 163.793 )
 [node name="Rope2" parent="Ropes" instance=ExtResource( 9 )]
 position = Vector2( 284.097, 163.793 )
 
-[node name="Player1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 35.4777, 159.314 )
+[node name="Players" type="Node2D" parent="."]
+
+[node name="Player1" parent="Players" instance=ExtResource( 1 )]
+position = Vector2( 141.01, 63.8723 )
 player_texture = ExtResource( 7 )
 
-[node name="Player2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 301.043, 159.314 )
+[node name="Player2" parent="Players" instance=ExtResource( 1 )]
+position = Vector2( 187.942, 64.2927 )
 id = "p2"
 facing_right = false
 player_texture = ExtResource( 8 )
