@@ -147,8 +147,8 @@ func flip_h(value = null):
 	player_sprite.flip_h = value
 	boots_sprite.flip_h = value
 	facing_right = not value
+	
 		
-
 func jump(multi = 1):
 	vel.y = -jump_speed * multi
 
@@ -174,3 +174,26 @@ func throw(right: bool, move_up := false):
 	vel = move_and_slide(vel)
 	state_machine.travel(travel_to)
 		
+
+func _on_HurtBox_area_entered(body):
+	var enemy := body.get_parent() as Player
+	if enemy:
+		if vel.x == -enemy.vel.x:
+			if state() == enemy.state():
+				throw(vel.x < 0, on_floor)
+		
+		elif vel.x == 0:
+			if state() == 'duck' and enemy.state() == 'run':
+				enemy.throw(enemy.vel.x > 0, enemy.on_floor)
+			else:
+				throw(enemy.vel.x > 0, on_floor)
+
+				# wether the enemy is hiting this player with his back side
+				var back_to_this_player = enemy.vel.x < 0 == enemy.facing_right
+
+				if back_to_this_player:
+					enemy.throw(enemy.vel.x < 0, enemy.on_floor)
+
+				if enemy.generic_state != States.GROUND:
+					enemy.throw(enemy.vel.x < 0, false)
+					
