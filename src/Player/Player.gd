@@ -117,14 +117,14 @@ func _physics_process(_delta):
 		States.ROPE:
 			vel.x = (int(p_right) - int(p_left)) * rope_speed
 			if vel.x or not touching_rope:
-				set_collision_mask_bit(1, true)
-				set_collision_mask_bit(3, false)
+				set_collision_mask_bit(Global.Layers.GROUND, true)
+				set_collision_mask_bit(Global.Layers.ROPE_ENDS, false)
 				gravity = default_gravity
 				state_machine.travel("idle")
 				generic_state = States.GROUND
 			else:
-				set_collision_mask_bit(1, false)
-				set_collision_mask_bit(3, true)
+				set_collision_mask_bit(Global.Layers.GROUND, false)
+				set_collision_mask_bit(Global.Layers.ROPE_ENDS, true)
 				global_position.x = rope_position.x
 				gravity = 0
 				vel.y = (int(p_down) - int(p_up)) * rope_speed
