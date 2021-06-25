@@ -147,9 +147,6 @@ func flip_h(value = null):
 	player_sprite.flip_h = value
 	boots_sprite.flip_h = value
 		
-func duck():
-	vel.x = 0
-	state_machine.travel("duck")
 
 func jump(multi = 1):
 	vel.y = -jump_speed * multi
@@ -157,17 +154,22 @@ func jump(multi = 1):
 func state():
 	return state_machine.get_current_node()
 
-func use_item():
-	jump(1.35)
+func throw(right: bool, move_up := false):
+	if right == facing_right:
+		travel_to = "throwed_forward"
+	else:
+		travel_to = "throwed_backward"
 
-func roll_backwards():
-	vel.x = -vel.x
-	state_machine.travel("roll_backward")
-	pass
+	if right:
+		vel.x = +move_speed
+	else:
+		vel.x = -move_speed
+	if move_up:
+		# vel.x /= 1.1
+		vel.y = -jump_speed / 1.5
 	
-func thrown_backwards():
-	vel.x = -vel.x
 	being_dragged = true
-	state_machine.travel("thrown_backward")
-func drown():
-	print("drown")
+	can_move_x = false
+	vel = move_and_slide(vel)
+	state_machine.travel(travel_to)
+		
