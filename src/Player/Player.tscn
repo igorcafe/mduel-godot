@@ -1,8 +1,11 @@
-[gd_scene load_steps=78 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://Player/playerSprite1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Player/States/Ground.gd" type="Script" id=3]
 [ext_resource path="res://Player/bootsSprite.png" type="Texture" id=4]
+[ext_resource path="res://Player/States/Air.gd" type="Script" id=5]
+[ext_resource path="res://Player/States/Rope.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.22998, 1.92948 )
@@ -364,7 +367,7 @@ tracks/1/keys = {
 "values": [ 28, 29 ]
 }
 
-[sub_resource type="Animation" id=74]
+[sub_resource type="Animation" id=13]
 resource_name = "throwed_forward"
 length = 0.2
 loop = true
@@ -381,46 +384,42 @@ tracks/0/keys = {
 "values": [ 26, 27 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "duck"
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=15]
 animation = "fall"
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=16]
 animation = "idle"
 
-[sub_resource type="AnimationNodeAnimation" id=16]
+[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "jump_in_place"
 
-[sub_resource type="AnimationNodeAnimation" id=17]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "jump_running"
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=19]
 resource_local_to_scene = true
 animation = "roll_backward"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=20]
 animation = "roll_forward"
 
-[sub_resource type="AnimationNodeAnimation" id=20]
+[sub_resource type="AnimationNodeAnimation" id=21]
 animation = "rope_climbing"
 
-[sub_resource type="AnimationNodeAnimation" id=21]
+[sub_resource type="AnimationNodeAnimation" id=22]
 animation = "rope_idle"
 
-[sub_resource type="AnimationNodeAnimation" id=22]
+[sub_resource type="AnimationNodeAnimation" id=23]
 animation = "run"
 
-[sub_resource type="AnimationNodeAnimation" id=70]
+[sub_resource type="AnimationNodeAnimation" id=24]
 animation = "throwed_backward"
 
-[sub_resource type="AnimationNodeAnimation" id=75]
+[sub_resource type="AnimationNodeAnimation" id=25]
 animation = "throwed_forward"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=24]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=25]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=26]
 
@@ -431,14 +430,12 @@ animation = "throwed_forward"
 [sub_resource type="AnimationNodeStateMachineTransition" id=29]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=30]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=33]
 switch_mode = 2
@@ -447,6 +444,8 @@ auto_advance = true
 [sub_resource type="AnimationNodeStateMachineTransition" id=34]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=35]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=36]
 
@@ -454,9 +453,15 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=38]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=41]
 switch_mode = 2
 auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=43]
 
@@ -466,182 +471,180 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=46]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=71]
+[sub_resource type="AnimationNodeStateMachineTransition" id=47]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=72]
+[sub_resource type="AnimationNodeStateMachineTransition" id=48]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=73]
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=76]
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=77]
+[sub_resource type="AnimationNodeStateMachineTransition" id=51]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=78]
-
-[sub_resource type="AnimationNodeStateMachine" id=47]
-states/duck/node = SubResource( 13 )
+[sub_resource type="AnimationNodeStateMachine" id=52]
+states/duck/node = SubResource( 14 )
 states/duck/position = Vector2( 547.631, -110.495 )
-states/fall/node = SubResource( 14 )
+states/fall/node = SubResource( 15 )
 states/fall/position = Vector2( -68.9997, 544.906 )
-states/idle/node = SubResource( 15 )
+states/idle/node = SubResource( 16 )
 states/idle/position = Vector2( 548.943, 31.889 )
-states/jump_in_place/node = SubResource( 16 )
+states/jump_in_place/node = SubResource( 17 )
 states/jump_in_place/position = Vector2( 92.4543, 78.159 )
-states/jump_running/node = SubResource( 17 )
+states/jump_running/node = SubResource( 18 )
 states/jump_running/position = Vector2( 716.817, 491.623 )
-states/roll_backward/node = SubResource( 18 )
+states/roll_backward/node = SubResource( 19 )
 states/roll_backward/position = Vector2( 922.821, 386.309 )
-states/roll_forward/node = SubResource( 19 )
+states/roll_forward/node = SubResource( 20 )
 states/roll_forward/position = Vector2( 515.69, 349.667 )
-states/rope_climbing/node = SubResource( 20 )
+states/rope_climbing/node = SubResource( 21 )
 states/rope_climbing/position = Vector2( 819.77, 77.7137 )
-states/rope_idle/node = SubResource( 21 )
+states/rope_idle/node = SubResource( 22 )
 states/rope_idle/position = Vector2( 951.338, 180.38 )
-states/run/node = SubResource( 22 )
+states/run/node = SubResource( 23 )
 states/run/position = Vector2( 273.968, 433.963 )
-states/throwed_backward/node = SubResource( 70 )
+states/throwed_backward/node = SubResource( 24 )
 states/throwed_backward/position = Vector2( 730.799, 714.567 )
-states/throwed_forward/node = SubResource( 75 )
+states/throwed_forward/node = SubResource( 25 )
 states/throwed_forward/position = Vector2( 502.211, 603.806 )
-transitions = [ "idle", "jump_in_place", SubResource( 24 ), "jump_in_place", "idle", SubResource( 25 ), "idle", "run", SubResource( 26 ), "run", "idle", SubResource( 27 ), "run", "jump_running", SubResource( 28 ), "idle", "fall", SubResource( 29 ), "jump_in_place", "fall", SubResource( 30 ), "jump_running", "fall", SubResource( 31 ), "fall", "idle", SubResource( 32 ), "roll_forward", "idle", SubResource( 33 ), "run", "roll_forward", SubResource( 34 ), "idle", "duck", SubResource( 35 ), "duck", "idle", SubResource( 36 ), "jump_running", "idle", SubResource( 37 ), "run", "fall", SubResource( 38 ), "roll_backward", "idle", SubResource( 41 ), "idle", "rope_climbing", SubResource( 43 ), "rope_climbing", "rope_idle", SubResource( 44 ), "rope_idle", "rope_climbing", SubResource( 45 ), "rope_climbing", "idle", SubResource( 46 ), "fall", "throwed_backward", SubResource( 71 ), "jump_running", "throwed_backward", SubResource( 72 ), "throwed_backward", "roll_backward", SubResource( 73 ), "jump_running", "throwed_forward", SubResource( 76 ), "throwed_forward", "roll_forward", SubResource( 77 ), "fall", "throwed_forward", SubResource( 78 ) ]
+transitions = [ "idle", "jump_in_place", SubResource( 26 ), "jump_in_place", "idle", SubResource( 27 ), "idle", "run", SubResource( 28 ), "run", "idle", SubResource( 29 ), "run", "jump_running", SubResource( 30 ), "idle", "fall", SubResource( 31 ), "jump_in_place", "fall", SubResource( 32 ), "jump_running", "fall", SubResource( 33 ), "fall", "idle", SubResource( 34 ), "roll_forward", "idle", SubResource( 35 ), "run", "roll_forward", SubResource( 36 ), "idle", "duck", SubResource( 37 ), "duck", "idle", SubResource( 38 ), "jump_running", "idle", SubResource( 39 ), "run", "fall", SubResource( 40 ), "roll_backward", "idle", SubResource( 41 ), "idle", "rope_climbing", SubResource( 42 ), "rope_climbing", "rope_idle", SubResource( 43 ), "rope_idle", "rope_climbing", SubResource( 44 ), "rope_climbing", "idle", SubResource( 45 ), "fall", "throwed_backward", SubResource( 46 ), "jump_running", "throwed_backward", SubResource( 47 ), "throwed_backward", "roll_backward", SubResource( 48 ), "jump_running", "throwed_forward", SubResource( 49 ), "throwed_forward", "roll_forward", SubResource( 50 ), "fall", "throwed_forward", SubResource( 51 ) ]
 start_node = "idle"
 graph_offset = Vector2( -246.122, -36.5275 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=48]
-
-[sub_resource type="AnimationNodeAnimation" id=49]
-animation = "duck"
-
-[sub_resource type="AnimationNodeAnimation" id=50]
-animation = "thrown_backward"
-
-[sub_resource type="AnimationNodeAnimation" id=51]
-animation = "run"
-
-[sub_resource type="AnimationNodeAnimation" id=52]
-animation = "jump_in_place"
-
-[sub_resource type="AnimationNodeAnimation" id=53]
-animation = "jump_running"
+[sub_resource type="AnimationNodeStateMachinePlayback" id=53]
 
 [sub_resource type="AnimationNodeAnimation" id=54]
-animation = "roll_forward"
+animation = "duck"
 
 [sub_resource type="AnimationNodeAnimation" id=55]
-animation = "roll_backward"
+animation = "thrown_backward"
 
 [sub_resource type="AnimationNodeAnimation" id=56]
-animation = "rope_idle"
+animation = "run"
 
 [sub_resource type="AnimationNodeAnimation" id=57]
-animation = "rope_climbing"
+animation = "jump_in_place"
 
 [sub_resource type="AnimationNodeAnimation" id=58]
-animation = "fall"
+animation = "jump_running"
 
 [sub_resource type="AnimationNodeAnimation" id=59]
+animation = "roll_forward"
+
+[sub_resource type="AnimationNodeAnimation" id=60]
+animation = "roll_backward"
+
+[sub_resource type="AnimationNodeAnimation" id=61]
+animation = "rope_idle"
+
+[sub_resource type="AnimationNodeAnimation" id=62]
+animation = "rope_climbing"
+
+[sub_resource type="AnimationNodeAnimation" id=63]
+animation = "fall"
+
+[sub_resource type="AnimationNodeAnimation" id=64]
 animation = "idle"
-
-[sub_resource type="AnimationNodeTransition" id=60]
-input_count = 2
-input_0/name = "idle"
-input_0/auto_advance = false
-input_1/name = "moving"
-input_1/auto_advance = false
-
-[sub_resource type="AnimationNodeTransition" id=61]
-input_count = 2
-input_0/name = "idle"
-input_0/auto_advance = false
-input_1/name = "duck"
-input_1/auto_advance = false
-
-[sub_resource type="AnimationNodeTransition" id=62]
-input_count = 2
-input_0/name = "idle"
-input_0/auto_advance = false
-input_1/name = "moving"
-input_1/auto_advance = false
-
-[sub_resource type="AnimationNodeTransition" id=63]
-input_count = 2
-input_0/name = "ground"
-input_0/auto_advance = false
-input_1/name = "air"
-input_1/auto_advance = false
-
-[sub_resource type="AnimationNodeTransition" id=64]
-input_count = 2
-input_0/name = "air"
-input_0/auto_advance = false
-input_1/name = "rope"
-input_1/auto_advance = false
 
 [sub_resource type="AnimationNodeTransition" id=65]
 input_count = 2
 input_0/name = "idle"
 input_0/auto_advance = false
-input_1/name = "move"
+input_1/name = "moving"
 input_1/auto_advance = false
 
 [sub_resource type="AnimationNodeTransition" id=66]
 input_count = 2
 input_0/name = "idle"
 input_0/auto_advance = false
-input_1/name = "climb"
+input_1/name = "duck"
 input_1/auto_advance = false
 
 [sub_resource type="AnimationNodeTransition" id=67]
+input_count = 2
+input_0/name = "idle"
+input_0/auto_advance = false
+input_1/name = "moving"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=68]
+input_count = 2
+input_0/name = "ground"
+input_0/auto_advance = false
+input_1/name = "air"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=69]
+input_count = 2
+input_0/name = "air"
+input_0/auto_advance = false
+input_1/name = "rope"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=70]
+input_count = 2
+input_0/name = "idle"
+input_0/auto_advance = false
+input_1/name = "move"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=71]
+input_count = 2
+input_0/name = "idle"
+input_0/auto_advance = false
+input_1/name = "climb"
+input_1/auto_advance = false
+
+[sub_resource type="AnimationNodeTransition" id=72]
 input_count = 2
 input_0/name = "run"
 input_0/auto_advance = false
 input_1/name = "roll"
 input_1/auto_advance = false
 
-[sub_resource type="AnimationNodeBlendTree" id=68]
+[sub_resource type="AnimationNodeBlendTree" id=73]
 graph_offset = Vector2( 421.5, -155 )
-nodes/Animation/node = SubResource( 59 )
+nodes/Animation/node = SubResource( 64 )
 nodes/Animation/position = Vector2( 53.3333, -26.6667 )
-"nodes/Animation 10/node" = SubResource( 49 )
+"nodes/Animation 10/node" = SubResource( 54 )
 "nodes/Animation 10/position" = Vector2( 53.3333, 106.667 )
-"nodes/Animation 11/node" = SubResource( 50 )
+"nodes/Animation 11/node" = SubResource( 55 )
 "nodes/Animation 11/position" = Vector2( 1120, 506.667 )
-"nodes/Animation 2/node" = SubResource( 51 )
+"nodes/Animation 2/node" = SubResource( 56 )
 "nodes/Animation 2/position" = Vector2( 53.3333, 266.667 )
-"nodes/Animation 3/node" = SubResource( 52 )
+"nodes/Animation 3/node" = SubResource( 57 )
 "nodes/Animation 3/position" = Vector2( 880, 640 )
-"nodes/Animation 4/node" = SubResource( 53 )
+"nodes/Animation 4/node" = SubResource( 58 )
 "nodes/Animation 4/position" = Vector2( 1120, 640 )
-"nodes/Animation 5/node" = SubResource( 54 )
+"nodes/Animation 5/node" = SubResource( 59 )
 "nodes/Animation 5/position" = Vector2( -186.667, 213.333 )
-"nodes/Animation 6/node" = SubResource( 55 )
+"nodes/Animation 6/node" = SubResource( 60 )
 "nodes/Animation 6/position" = Vector2( -186.667, 373.333 )
-"nodes/Animation 7/node" = SubResource( 56 )
+"nodes/Animation 7/node" = SubResource( 61 )
 "nodes/Animation 7/position" = Vector2( 133.333, 640 )
-"nodes/Animation 8/node" = SubResource( 57 )
+"nodes/Animation 8/node" = SubResource( 62 )
 "nodes/Animation 8/position" = Vector2( 106.667, 800 )
-"nodes/Animation 9/node" = SubResource( 58 )
+"nodes/Animation 9/node" = SubResource( 63 )
 "nodes/Animation 9/position" = Vector2( 1413.33, 373.333 )
-nodes/air_moving_x/node = SubResource( 60 )
+nodes/air_moving_x/node = SubResource( 65 )
 nodes/air_moving_x/position = Vector2( 373.333, 426.667 )
-nodes/ducking/node = SubResource( 61 )
+nodes/ducking/node = SubResource( 66 )
 nodes/ducking/position = Vector2( 320, 26.6667 )
-nodes/ground_moving_x/node = SubResource( 62 )
+nodes/ground_moving_x/node = SubResource( 67 )
 nodes/ground_moving_x/position = Vector2( 533.333, 80 )
-nodes/in_air/node = SubResource( 63 )
+nodes/in_air/node = SubResource( 68 )
 nodes/in_air/position = Vector2( 826.667, 160 )
-nodes/in_rope/node = SubResource( 64 )
+nodes/in_rope/node = SubResource( 69 )
 nodes/in_rope/position = Vector2( 640, 426.667 )
-nodes/moving_x/node = SubResource( 65 )
+nodes/moving_x/node = SubResource( 70 )
 nodes/moving_x/position = Vector2( 1040, 160 )
-nodes/moving_y/node = SubResource( 66 )
+nodes/moving_y/node = SubResource( 71 )
 nodes/moving_y/position = Vector2( 373.333, 666.667 )
 nodes/output/position = Vector2( 1360, 133.333 )
-nodes/rolling/node = SubResource( 67 )
+nodes/rolling/node = SubResource( 72 )
 nodes/rolling/position = Vector2( 346.667, 240 )
-node_connections = [ "ducking", 0, "Animation", "ducking", 1, "Animation 10", "in_rope", 0, "air_moving_x", "in_rope", 1, "moving_y", "in_air", 0, "ground_moving_x", "in_air", 1, "in_rope", "moving_y", 0, "Animation 7", "moving_y", 1, "Animation 8", "ground_moving_x", 0, "ducking", "ground_moving_x", 1, "rolling", "rolling", 0, "Animation 2" ]
+node_connections = [ "ducking", 0, "Animation", "ducking", 1, "Animation 10", "ground_moving_x", 0, "ducking", "ground_moving_x", 1, "rolling", "in_air", 0, "ground_moving_x", "in_air", 1, "in_rope", "in_rope", 0, "air_moving_x", "in_rope", 1, "moving_y", "moving_y", 0, "Animation 7", "moving_y", 1, "Animation 8", "rolling", 0, "Animation 2" ]
 
-[sub_resource type="RectangleShape2D" id=69]
+[sub_resource type="RectangleShape2D" id=74]
 extents = Vector2( 6.8842, 11.4799 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -676,15 +679,15 @@ anims/rope_climbing = SubResource( 9 )
 anims/rope_idle = SubResource( 10 )
 anims/run = SubResource( 11 )
 anims/throwed_backward = SubResource( 12 )
-anims/throwed_forward = SubResource( 74 )
+anims/throwed_forward = SubResource( 13 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 47 )
+tree_root = SubResource( 52 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 48 )
+parameters/playback = SubResource( 53 )
 
 [node name="AnimationTree2" type="AnimationTree" parent="."]
-tree_root = SubResource( 68 )
+tree_root = SubResource( 73 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/air_moving_x/current = 0
 parameters/ducking/current = 0
@@ -696,11 +699,23 @@ parameters/moving_y/current = 0
 parameters/rolling/current = 0
 
 [node name="HurtBox" type="Area2D" parent="."]
-scale = Vector2( 0.795, 1 )
+position = Vector2( 0, -2.983 )
+scale = Vector2( 0.795, 0.867 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2( -0.471935, -11.5625 )
 scale = Vector2( 1, 0.995 )
-shape = SubResource( 69 )
+shape = SubResource( 74 )
+
+[node name="States" type="Node" parent="."]
+
+[node name="Ground" type="Node" parent="States"]
+script = ExtResource( 3 )
+
+[node name="Air" type="Node" parent="States"]
+script = ExtResource( 5 )
+
+[node name="Rope" type="Node" parent="States"]
+script = ExtResource( 6 )
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
