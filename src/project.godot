@@ -116,7 +116,7 @@ p2_item={
 2d_physics/layer_4="RopeEnds"
 2d_physics/layer_5="SideBoundaries"
 2d_physics/layer_6="Water"
-2d_physics/layer_7="Item"
+2d_physics/layer_7="Pickup"
 
 [locale]
 
