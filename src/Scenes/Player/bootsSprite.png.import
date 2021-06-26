@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pickupSprites.png-33f2c099a6fe252b495b775014c8c8b2.stex"
+path="res://.import/bootsSprite.png-98857990824a80dbe36cb69d0f0d37c3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pickup/pickupSprites.png"
-dest_files=[ "res://.import/pickupSprites.png-33f2c099a6fe252b495b775014c8c8b2.stex" ]
+source_file="res://Scenes/Player/bootsSprite.png"
+dest_files=[ "res://.import/bootsSprite.png-98857990824a80dbe36cb69d0f0d37c3.stex" ]
 
 [params]
 

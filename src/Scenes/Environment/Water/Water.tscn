@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Environment/Water/WaterSplash.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Environment/Water/Water.gd" type="Script" id=2]
-[ext_resource path="res://Environment/Water/WaterTile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Effects/WaterSplash.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Environment/Water/Water.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Environment/Water/WaterTile.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 177.373, 17.0523 )

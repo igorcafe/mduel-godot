@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/effectSprites.png-a159a146ea4a82593a7bff340f78c2b7.stex"
+path="res://.import/effectSprites.png-666452709ca469a2bb1ab614fe40bc94.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://effectSprites.png"
-dest_files=[ "res://.import/effectSprites.png-a159a146ea4a82593a7bff340f78c2b7.stex" ]
+source_file="res://Scenes/Effects/effectSprites.png"
+dest_files=[ "res://.import/effectSprites.png-666452709ca469a2bb1ab614fe40bc94.stex" ]
 
 [params]
 
