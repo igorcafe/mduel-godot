@@ -648,7 +648,7 @@ node_connections = [ "ducking", 0, "Animation", "ducking", 1, "Animation 10", "g
 extents = Vector2( 6.8842, 11.4799 )
 
 [node name="Player" type="KinematicBody2D"]
-collision_mask = 127
+collision_mask = 15
 script = ExtResource( 2 )
 jump_speed = 190
 
@@ -701,6 +701,7 @@ parameters/rolling/current = 0
 [node name="HurtBox" type="Area2D" parent="."]
 position = Vector2( 0, -2.983 )
 scale = Vector2( 0.795, 0.867 )
+collision_mask = 113
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2( -0.471935, -11.5625 )

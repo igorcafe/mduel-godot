@@ -44,19 +44,19 @@ extents = Vector2( 177.373, 17.0523 )
 
 [node name="Main" type="Node2D"]
 
-[node name="ScreenBoundaries" type="Area2D" parent="."]
+[node name="SideBoundaries" type="Area2D" parent="."]
 position = Vector2( 128.721, 95.2316 )
 scale = Vector2( 0.978315, 0.978315 )
 collision_layer = 16
 collision_mask = 0
 script = ExtResource( 6 )
 
-[node name="left" type="CollisionShape2D" parent="ScreenBoundaries"]
+[node name="left" type="CollisionShape2D" parent="SideBoundaries"]
 position = Vector2( -142.388, 0 )
 scale = Vector2( 1, 1.36798 )
 shape = SubResource( 1 )
 
-[node name="right" type="CollisionShape2D" parent="ScreenBoundaries"]
+[node name="right" type="CollisionShape2D" parent="SideBoundaries"]
 position = Vector2( 226.953, 0 )
 scale = Vector2( 1, 1.36798 )
 shape = SubResource( 1 )
@@ -105,5 +105,5 @@ splash_scene = ExtResource( 5 )
 position = Vector2( 171.246, 4.841 )
 shape = SubResource( 4 )
 
-[connection signal="body_entered" from="ScreenBoundaries" to="ScreenBoundaries" method="_on_ScreenBoundaries_body_entered"]
+[connection signal="area_entered" from="SideBoundaries" to="SideBoundaries" method="_on_SideBoundaries_area_entered"]
 [connection signal="body_entered" from="Water" to="Water" method="_on_Water_body_entered"]
