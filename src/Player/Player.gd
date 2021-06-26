@@ -111,22 +111,42 @@ func throw(right: bool, move_up := false):
 func _on_HurtBox_area_entered(body):
 	var enemy := body.get_parent() as Player
 	if enemy:
-		if vel.x == -enemy.vel.x:
-			if state() == enemy.state():
-				throw(vel.x < 0, on_floor)
-		
-		elif vel.x == 0:
+		# If one of the players are not at the ground, both will be throwed away
+		if generic_state != States.GROUND or enemy.generic_state != States.GROUND:
+			var move_up = true
+			var enemy_move_up = true
+
+			if vel.x:
+				throw(vel.x < 0, move_up)
+			else:
+				throw(facing_right, move_up)
+
+			if enemy.vel.x:
+				enemy.throw(enemy.vel.x < 0, enemy_move_up)
+			else:
+				enemy.throw(enemy.facing_right, enemy_move_up)
+		else:
+			# If both players are on the ground and one is ducking, the other one will stumble
 			if state() == 'duck' and enemy.state() == 'run':
 				enemy.throw(enemy.vel.x > 0, enemy.on_floor)
-			else:
-				throw(enemy.vel.x > 0, on_floor)
 
-				# wether the enemy is hiting this player with his back side
-				var back_to_this_player = enemy.vel.x < 0 == enemy.facing_right
+		# if vel.x == -enemy.vel.x:
+		# 	if state() == enemy.state():
+		# 		throw(vel.x < 0, on_floor)
+		
+		# elif vel.x == 0:
+		# 	if state() == 'duck' and enemy.state() == 'run':
+		# 		enemy.throw(enemy.vel.x > 0, enemy.on_floor)
+		# 	else:
+		# 		if generic_state == States.ROPE:
+		# 		throw(enemy.vel.x > 0, on_floor or )
 
-				if back_to_this_player:
-					enemy.throw(enemy.vel.x < 0, enemy.on_floor)
+		# 		# wether the enemy is hiting this player with his back side
+		# 		var back_to_this_player = enemy.vel.x < 0 == enemy.facing_right
 
-				if enemy.generic_state != States.GROUND:
-					enemy.throw(enemy.vel.x < 0, false)
+		# 		if back_to_this_player:
+		# 			enemy.throw(enemy.vel.x < 0, enemy.on_floor)
+
+		# 		if enemy.generic_state != States.GROUND:
+		# 			enemy.throw(enemy.vel.x < 0, false)
 					

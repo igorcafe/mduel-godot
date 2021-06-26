@@ -2,7 +2,8 @@ extends Node
 
 func process(p: Player):
 	var travel_to = "idle"
-	p.vel.x = (int(p.p_right) - int(p.p_left)) * p.rope_speed
+	if not p.vel.x:
+		p.vel.x = (int(p.p_right) - int(p.p_left)) * p.rope_speed
 
 	if p.vel.x or not p.touching_rope:
 		p.set_collision_mask_bit(Global.Layers.GROUND, true)
