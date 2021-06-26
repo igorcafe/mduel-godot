@@ -505,10 +505,10 @@ states/run/position = Vector2( 273.968, 433.963 )
 states/throwed_backward/node = SubResource( 24 )
 states/throwed_backward/position = Vector2( 730.799, 714.567 )
 states/throwed_forward/node = SubResource( 25 )
-states/throwed_forward/position = Vector2( 502.211, 603.806 )
+states/throwed_forward/position = Vector2( 484.878, 570.473 )
 transitions = [ "idle", "jump_in_place", SubResource( 26 ), "jump_in_place", "idle", SubResource( 27 ), "idle", "run", SubResource( 28 ), "run", "idle", SubResource( 29 ), "run", "jump_running", SubResource( 30 ), "idle", "fall", SubResource( 31 ), "jump_in_place", "fall", SubResource( 32 ), "jump_running", "fall", SubResource( 33 ), "fall", "idle", SubResource( 34 ), "roll_forward", "idle", SubResource( 35 ), "run", "roll_forward", SubResource( 36 ), "idle", "duck", SubResource( 37 ), "duck", "idle", SubResource( 38 ), "jump_running", "idle", SubResource( 39 ), "run", "fall", SubResource( 40 ), "roll_backward", "idle", SubResource( 41 ), "idle", "rope_climbing", SubResource( 42 ), "rope_climbing", "rope_idle", SubResource( 43 ), "rope_idle", "rope_climbing", SubResource( 44 ), "rope_climbing", "idle", SubResource( 45 ), "fall", "throwed_backward", SubResource( 46 ), "jump_running", "throwed_backward", SubResource( 47 ), "throwed_backward", "roll_backward", SubResource( 48 ), "jump_running", "throwed_forward", SubResource( 49 ), "throwed_forward", "roll_forward", SubResource( 50 ), "fall", "throwed_forward", SubResource( 51 ) ]
 start_node = "idle"
-graph_offset = Vector2( -246.122, -36.5275 )
+graph_offset = Vector2( -186.01, -36.5275 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=53]
 
@@ -656,12 +656,14 @@ jump_speed = 190
 position = Vector2( 0, -11.9963 )
 texture = ExtResource( 1 )
 vframes = 68
+frame = 1
 
 [node name="BootsSprite" type="Sprite" parent="."]
 visible = false
 position = Vector2( 0, -11.996 )
 texture = ExtResource( 4 )
 vframes = 68
+frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.332661, -2.33401 )
