@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="MDuel PoC"
-run/main_scene="res://Main/Main.tscn"
+run/main_scene="res://Scenes/Main/Main.tscn"
 config/icon="res://icon.png"
 
 [display]
